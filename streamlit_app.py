@@ -442,6 +442,7 @@ st.html("""
 </head>
 <body>
 
+<!-- MÀN HÌNH LỜI MỜI (OFFER) -->
 <div class="screen offer-screen" id="screenOffer">
   <div class="offer-container">
     <div class="offer-avatar">
@@ -462,6 +463,7 @@ st.html("""
   </div>
 </div>
 
+<!-- MÀN HÌNH HOA (KHI NHẬN) -->
 <div class="screen flower-screen hidden" id="screenFlower">
   <div class="aurora-layer">
     <div class="aurora-blob"></div>
@@ -529,6 +531,7 @@ st.html("""
 </div>
 
 <script>
+  // ----- DOM Elements -----
   const screenOffer = document.getElementById('screenOffer');
   const screenFlower = document.getElementById('screenFlower');
   const btnYes = document.getElementById('btnYes');
@@ -536,6 +539,7 @@ st.html("""
   const restartBtn = document.getElementById('restartBtn');
   const buttonArea = document.getElementById('buttonArea');
 
+  // ----- Quản lý trạng thái "né chuột" cho nút Không -----
   let isNoEscaping = false;
   let placeholderSpan = null;
   let originalParent = null;
@@ -614,7 +618,7 @@ st.html("""
     isNoEscaping = true;
     btnNo.onclick = (e) => {
       e.stopPropagation();
-      showGentleMessage('Bạn không thể từ chối món quà đâu! Hãy nhận hoa đi ạ');
+      showGentleMessage('🌸 Bạn không thể từ chối món quà đâu! Hãy nhận hoa đi ạ 🌸');
       btnYes.style.animation = 'none';
       btnYes.offsetHeight;
       btnYes.style.animation = 'floatAvatar 0.3s ease';
@@ -672,9 +676,9 @@ st.html("""
     btnNo.onclick = (e) => {
       e.stopPropagation();
       if (!isNoEscaping) {
-        showGentleMessage('Di chuột vào nút "Không" xem nào... nó sẽ chạy đó!');
+        showGentleMessage('💕 Bạn thử di chuột vào nút "Không" xem nào... nó sẽ chạy đó! 💕');
       } else {
-        showGentleMessage('Đã bảo là không thể từ chối rồi mà! Nhận hoa thôi');
+        showGentleMessage('🌸 Đã bảo là không thể từ chối rồi mà! Nhận hoa thôi 🩷');
       }
     };
   }
@@ -755,9 +759,9 @@ st.html("""
   btnNo.onclick = (e) => {
     e.stopPropagation();
     if (!isNoEscaping) {
-      showGentleMessage('Đừng từ chối nhanh thế! Hãy di chuột vào nút "Không" để thấy điều bất ngờ');
+      showGentleMessage('💌 Đừng từ chối nhanh thế! Hãy di chuột vào nút "Không" để thấy điều bất ngờ 💌');
     } else {
-      showGentleMessage('Nút này không thích bị từ chối đâu, hãy nhận hoa nhé!');
+      showGentleMessage('🎈 Nút này không thích bị từ chối đâu, hãy nhận hoa nhé! 🎈');
     }
   };
 
@@ -782,23 +786,16 @@ st.html("""
 
 st.markdown("""
 <style>
-    /* Ẩn thanh footer mặc định của Streamlit */
     footer {visibility: hidden;}
     header {visibility: hidden;}
-
-    /* Ẩn các phần tử Streamlit không cần thiết */
     .stApp > footer,
     .stApp > header {
         display: none;
     }
-
-    /* Ẩn menu & toolbar của Streamlit khi dùng st.html */
     [data-testid="stMainBlockContainer"] {
         padding: 0 !important;
         max-width: 100% !important;
     }
-
-    /* Container bao ngoài cho st.html */
     [data-testid="stHTML"] > div {
         height: 100vh !important;
         overflow: hidden !important;
